@@ -25,14 +25,28 @@ fi
 # Install antigen pluggin manager
 cd ~
 curl -L git.io/antigen > antigen.zsh
-read -p "Do you want install Kali's tools. It can take few minutes (Y/N): "  confirm
+read -p "Do you want install a Kali Linux LXD Image (Y/N): "  confirm
 if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]
 then
-    sudo add-apt-repository universe
-    git clone https://github.com/s-h-3-l-l/katoolin3
-    cd katoolin3/
-    chmod +x ./install.sh
-    sudo ./install.shcode 
+    cd ~
+    ## Install LXD
+    sudo snap install lxd
+    lxd init
+
+    ## Launch the container
+    lxc launch images:kali/current/amd64 my-kali
+
+    ## Install some additional applications, use either light or default
+    lxc exec my-kali -- passwd                         ## First things first
+    lxc exec my-kali -- apt install kali-linux-light   ## Bare minimum
+    lxc exec my-kali -- apt install kali-linux-default ## Default set of packages
+
+    ## Setup non-root user
+    lxc exec my-kali -- adduser kali
+    lxc exec my-kali -- usermod -aG sudo kali
+    lxc exec my-kali -- sed -i '1 i\TERM=xterm-256color' /home/kali/.bashrc
+    lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
+    echo lxc console my-kali > how_to_launch_kali.txt
 fi
 echo ''
 echo 'INSTALLATION FINISH, THANK YOU'
