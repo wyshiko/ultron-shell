@@ -34,7 +34,7 @@ then
     lxd init
 
     ## Launch the container
-    lxc launch images:kali/current/amd64 my-kali
+    lxc launch images:kali/current/arm64 my-kali
 
     lxc exec my-kali -- passwd                         ## First things first
     lxc exec my-kali -- apt install kali-linux-light   ## Bare minimum
