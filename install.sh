@@ -1,4 +1,5 @@
 #!/bin/bash
+echo ''
 echo "           __ __                     ";
 echo "   __  __ / // /_ _____ ____   ____  ";
 echo "  / / / // // __// ___// __ \ / __ \ ";
@@ -31,7 +32,9 @@ then
     git clone https://github.com/s-h-3-l-l/katoolin3
     cd katoolin3/
     chmod +x ./install.sh
-    sudo ./install.sh
+    sudo ./install.shcode 
 fi
-echo'THANK YOU'
+echo ''
+echo 'INSTALLATION FINISH, THANK YOU'
+echo ''
 zsh
