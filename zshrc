@@ -40,7 +40,7 @@ echo "   __  __ / // /_ _____ ____   ____  ";
 echo "  / / / // // __// ___// __ \ / __ \ ";
 echo " / /_/ // // /_ / /   / /_/ // / / / ";
 echo " \__,_//_/ \__//_/    \____//_/ /_/  ";
-echo "     wellcome to the ultron shell    ";
+echo "     welcome to the ultron shell     ";
 echo "                                     ";
 
 #==  PROMPT   ===========================================
