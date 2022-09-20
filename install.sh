@@ -24,12 +24,14 @@ fi
 # Install antigen pluggin manager
 cd ~
 curl -L git.io/antigen > antigen.zsh
-read -p "Do you want install Kali's tools (Y/N): "  confirm
+read -p "Do you want install Kali's tools. It can take few minutes (Y/N): "  confirm
 if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]
 then
-    git clone https://github.com/LionSec/katoolin.git && cp katoolin/katoolin.
-    chmod +x /usr/bin/katoolin
-    sudo katoolin
+    sudo add-apt-repository universe
+    git clone https://github.com/s-h-3-l-l/katoolin3
+    cd katoolin3/
+    chmod +x ./install.sh
+    sudo ./install.sh
 fi
 echo'THANK YOU'
 zsh
