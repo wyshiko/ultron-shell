@@ -1,6 +1,6 @@
 # ULTRON shell
 
-Ultra is a zsh custom shell based on light oh my zsh plugins, and other.
+Ultron is a custom zsh shell with pluggins.
 
 ### Installation
 
