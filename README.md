@@ -8,6 +8,8 @@ In terminal:
 
 `git clone https://github.com/wyshiko/ultron-shell`
 
+`cd ultron-shell`
+
 `chmod +x install.sh`
 
 `./install.sh`
