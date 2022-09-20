@@ -31,6 +31,7 @@ fi
 ###Add Antigen 
 
 if [[ ! -f ~/antigen.zsh ]]; then
+        apt-get install curl
         curl -L git.io/antigen > ~/antigen.zsh
 fi
 
