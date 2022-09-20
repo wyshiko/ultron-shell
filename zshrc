@@ -34,13 +34,13 @@ if [[ ! -f ~/antigen.zsh ]]; then
         curl -L git.io/antigen > ~/antigen.zsh
 fi
 
-echo "  ▄     ▄▄▄▄▀ █▄▄▄▄ ████▄    ▄   ";
-echo "   █ ▀▀▀ █    █  ▄▀ █   █     █  ";
-echo "█   █    █    █▀▀▌  █   █ ██   █ ";
-echo "█   █   █     █  █  ▀████ █ █  █ ";
-echo "█▄ ▄█  ▀        █         █  █ █ ";
-echo " ▀▀▀           ▀          █   ██ ";
-echo "                                 ";
+echo "      ▄     ▄▄▄▄▀ █▄▄▄▄ ████▄    ▄    ";
+echo "       █ ▀▀▀ █    █  ▄▀ █   █     █   ";
+echo "    █   █    █    █▀▀▌  █   █ ██   █  ";
+echo "    █   █   █     █  █  ▀████ █ █  █  ";
+echo "    █▄ ▄█  ▀        █         █  █ █  ";
+echo "    ▀▀▀           ▀          █   ██   ";
+echo "                                      ";
 
 #==  PROMPT   ===========================================
 # Prompt custom
@@ -82,13 +82,13 @@ compinit
 alias python='python3'
 alias clear='clear;
 
-echo "  ▄     ▄▄▄▄▀ █▄▄▄▄ ████▄    ▄   ";
-echo "   █ ▀▀▀ █    █  ▄▀ █   █     █  ";
-echo "█   █    █    █▀▀▌  █   █ ██   █ ";
-echo "█   █   █     █  █  ▀████ █ █  █ ";
-echo "█▄ ▄█  ▀        █         █  █ █ ";
-echo " ▀▀▀           ▀          █   ██ ";
-echo "                                 ";
+echo "      ▄     ▄▄▄▄▀ █▄▄▄▄ ████▄    ▄    ";
+echo "       █ ▀▀▀ █    █  ▄▀ █   █     █   ";
+echo "    █   █    █    █▀▀▌  █   █ ██   █  ";
+echo "    █   █   █     █  █  ▀████ █ █  █  ";
+echo "    █▄ ▄█  ▀        █         █  █ █  ";
+echo "    ▀▀▀           ▀          █   ██   ";
+echo "                                      ";
 
 '
 
