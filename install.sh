@@ -25,6 +25,18 @@ fi
 # Install antigen pluggin manager
 cd ~
 curl -L git.io/antigen > antigen.zsh
+read -p "Do you want install Katoolin (Y/N): "  confirm
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]
+then
+    sudo apt-get update
+    sudo apt-get install python git
+    sudo add-apt-repository universe
+    git clone https://github.com/LionSec/katoolin.git
+    sudo mv katoolin/katoolin.py /usr/bin/katoolin
+    sudo chmod +x /usr/bin/katoolin
+    cd ~
+    sudo katoolin
+fi
 echo ''
 echo 'INSTALLATION FINISH, THANK YOU'
 echo ''
