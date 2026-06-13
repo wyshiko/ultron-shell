@@ -28,11 +28,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-###Add Antigen 
+### Antigen (installé par install.sh)
 
 if [[ ! -f ~/antigen.zsh ]]; then
-        apt-get install curl
-        curl -L git.io/antigen > ~/antigen.zsh
+    print -P "%F{160}Antigen introuvable. Exécutez ./install.sh depuis le dépôt ultron-shell.%f"
+else
+    source ~/antigen.zsh
 fi
 
 echo "           __ __                     ";
@@ -49,11 +50,7 @@ PROMPT='%S%F{white} %n@%m ❯%f%s %F{cyan}%1~%f %# '
 
 #==  PLUGUIN   ===========================================
 
-#Managers sources
-
-source ~/antigen.zsh
-
-#Call plugins
+# Plugins Zinit
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
