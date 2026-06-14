@@ -28,10 +28,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-### Antigen (installé par install.sh)
+### Antigen (installed by install.sh)
 
 if [[ ! -f ~/antigen.zsh ]]; then
-    print -P "%F{160}Antigen introuvable. Exécutez ./install.sh depuis le dépôt ultron-shell.%f"
+    print -P "%F{160}Antigen not found. Run ./install.sh from the ultron-shell repository.%f"
 else
     source ~/antigen.zsh
 fi

@@ -35,18 +35,18 @@ backup_file() {
     if [[ -f "$file" ]]; then
         local backup="${file}.backup.$(date +%Y%m%d%H%M%S)"
         cp "$file" "$backup"
-        echo "Sauvegarde créée : $backup"
+        echo "Backup created: $backup"
     fi
 }
 
 install_dependencies() {
     local os=$1
-    echo "Installation des dépendances (zsh, curl, git)..."
+    echo "Installing dependencies (zsh, curl, git)..."
 
     if [[ "$os" == "macos" ]]; then
         if ! command -v brew &>/dev/null; then
-            echo "Erreur : Homebrew est requis sur macOS."
-            echo "Installez-le depuis https://brew.sh puis relancez ce script."
+            echo "Error: Homebrew is required on macOS."
+            echo "Install it from https://brew.sh then run this script again."
             exit 1
         fi
         brew install zsh curl git
@@ -59,28 +59,28 @@ install_dependencies() {
         elif command -v pacman &>/dev/null; then
             sudo pacman -S --needed --noconfirm zsh curl git
         else
-            echo "Erreur : gestionnaire de paquets non reconnu."
-            echo "Installez manuellement zsh, curl et git, puis relancez ce script."
+            echo "Error: unrecognized package manager."
+            echo "Install zsh, curl, and git manually, then run this script again."
             exit 1
         fi
     else
-        echo "Erreur : système d'exploitation non supporté ($(uname -s))."
+        echo "Error: unsupported operating system ($(uname -s))."
         exit 1
     fi
 }
 
 install_antigen() {
     if [[ ! -f "$HOME/antigen.zsh" ]]; then
-        echo "Téléchargement d'Antigen..."
+        echo "Downloading Antigen..."
         curl -fsSL git.io/antigen -o "$HOME/antigen.zsh"
     else
-        echo "Antigen déjà présent dans ~/antigen.zsh"
+        echo "Antigen already present at ~/antigen.zsh"
     fi
 }
 
 install_katoolin() {
     if ! command -v apt-get &>/dev/null; then
-        echo "Katoolin n'est disponible que sur les distributions basées sur Debian/Ubuntu."
+        echo "Katoolin is only available on Debian/Ubuntu-based distributions."
         return
     fi
 
@@ -95,7 +95,7 @@ install_katoolin() {
     sudo chmod +x /usr/bin/katoolin
     rm -rf "$tmp_dir"
 
-    echo "Lancement de Katoolin (suivez les instructions à l'écran)..."
+    echo "Starting Katoolin (follow the on-screen instructions)..."
     sudo katoolin
 }
 
@@ -103,42 +103,42 @@ print_banner
 
 OS=$(detect_os)
 if [[ "$OS" == "unsupported" ]]; then
-    echo "Erreur : ce script supporte uniquement macOS et Linux."
+    echo "Error: this script only supports macOS and Linux."
     exit 1
 fi
 
-echo "Système détecté : $OS"
+echo "Detected system: $OS"
 echo ''
 
-if confirm "Installer Ultron et personnaliser votre shell (~/.zshrc sera modifié) ? (Y/N): "; then
+if confirm "Install Ultron and customize your shell (~/.zshrc will be modified)? (Y/N): "; then
     install_dependencies "$OS"
 
-    echo "Initialisation de ~/.zshrc"
+    echo "Setting up ~/.zshrc"
     backup_file "$HOME/.zshrc"
     cp "$SCRIPT_DIR/zshrc" "$HOME/.zshrc"
 
-    if confirm "Installer la configuration Powerlevel10k (~/.p10k.zsh) ? (Y/N): "; then
-        echo "Initialisation de ~/.p10k.zsh"
+    if confirm "Install the Powerlevel10k configuration (~/.p10k.zsh)? (Y/N): "; then
+        echo "Setting up ~/.p10k.zsh"
         backup_file "$HOME/.p10k.zsh"
         cp "$SCRIPT_DIR/p10k.zsh" "$HOME/.p10k.zsh"
     fi
 
     install_antigen
 else
-    if confirm "Installer uniquement Antigen (gestionnaire de plugins) ? (Y/N): "; then
+    if confirm "Install Antigen only (plugin manager)? (Y/N): "; then
         install_dependencies "$OS"
         install_antigen
     fi
 fi
 
-if [[ "$OS" == "linux" ]] && confirm "Installer Katoolin (outils Kali Linux sur Debian/Ubuntu) ? (Y/N): "; then
+if [[ "$OS" == "linux" ]] && confirm "Install Katoolin (Kali Linux tools on Debian/Ubuntu)? (Y/N): "; then
     install_katoolin
 fi
 
 echo ''
-echo 'INSTALLATION TERMINÉE — MERCI'
+echo 'INSTALLATION COMPLETE — THANK YOU'
 echo ''
-echo "Relancez votre terminal ou exécutez : zsh"
+echo "Restart your terminal or run: zsh"
 echo ''
 
 if command -v zsh &>/dev/null; then

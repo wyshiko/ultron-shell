@@ -1,26 +1,26 @@
 # ULTRON Shell
 
-Configuration zsh personnalisée avec thème Powerlevel10k, gestionnaires de plugins (Zinit + Antigen) et alias utiles.
+Custom zsh configuration with Powerlevel10k theme, plugin managers (Zinit + Antigen), and useful aliases.
 
-## Fonctionnalités
+## Features
 
-- **Prompt** : thème [Powerlevel10k](https://github.com/romkatv/powerlevel10k) (config incluse dans `p10k.zsh`)
-- **Plugins** :
-  - `zsh-autosuggestions` — suggestions de commandes
-  - `zsh-completions` — complétions enrichies
-  - `zsh-syntax-highlighting` — coloration syntaxique
-  - `web-search` (Oh My Zsh) — recherche web depuis le terminal
-- **Alias** : `ll`, `python` → `python3`, `clear` avec bannière Ultron
-- **Optionnel** : installation de [Katoolin](https://github.com/LionSec/katoolin) sur Debian/Ubuntu
+- **Prompt**: [Powerlevel10k](https://github.com/romkatv/powerlevel10k) theme (config included in `p10k.zsh`)
+- **Plugins**:
+  - `zsh-autosuggestions` — command suggestions
+  - `zsh-completions` — enhanced completions
+  - `zsh-syntax-highlighting` — syntax highlighting
+  - `web-search` (Oh My Zsh) — web search from the terminal
+- **Aliases**: `ll`, `python` → `python3`, `clear` with Ultron banner
+- **Optional**: [Katoolin](https://github.com/LionSec/katoolin) installation on Debian/Ubuntu
 
-## Prérequis
+## Prerequisites
 
-| Système | Outil requis |
-|---------|--------------|
-| macOS   | [Homebrew](https://brew.sh) |
-| Linux   | `apt`, `dnf` ou `pacman` selon la distribution |
+| System | Required tool |
+|--------|---------------|
+| macOS  | [Homebrew](https://brew.sh) |
+| Linux  | `apt`, `dnf`, or `pacman` depending on your distribution |
 
-Le script installe automatiquement **zsh**, **curl** et **git** si nécessaire.
+The install script automatically installs **zsh**, **curl**, and **git** if needed.
 
 ## Installation
 
@@ -31,48 +31,48 @@ chmod +x install.sh
 ./install.sh
 ```
 
-Le script vous guide étape par étape :
+The script walks you through each step:
 
-1. Installation des dépendances et copie de `~/.zshrc` (avec sauvegarde de l'ancien fichier)
-2. Installation optionnelle de `~/.p10k.zsh`
-3. Téléchargement d'Antigen dans `~/antigen.zsh`
-4. Installation optionnelle de Katoolin (Linux Debian/Ubuntu uniquement)
+1. Install dependencies and copy `~/.zshrc` (with backup of the existing file)
+2. Optional installation of `~/.p10k.zsh`
+3. Download Antigen to `~/antigen.zsh`
+4. Optional Katoolin installation (Debian/Ubuntu Linux only)
 
-Relancez ensuite votre terminal ou exécutez :
+Then restart your terminal or run:
 
 ```bash
 zsh
 ```
 
-## Structure du projet
+## Project structure
 
 ```
 ultron-shell/
-├── install.sh   # Script d'installation interactif
-├── zshrc        # Configuration zsh (copiée vers ~/.zshrc)
-├── p10k.zsh     # Configuration Powerlevel10k (copiée vers ~/.p10k.zsh)
+├── install.sh   # Interactive install script
+├── zshrc        # zsh configuration (copied to ~/.zshrc)
+├── p10k.zsh     # Powerlevel10k configuration (copied to ~/.p10k.zsh)
 ├── README.md
 └── LICENSE
 ```
 
-## Personnalisation
+## Customization
 
-- **Prompt** : lancez `p10k configure` ou éditez `~/.p10k.zsh`
-- **Plugins** : modifiez la section plugins dans `~/.zshrc` (Zinit et Antigen)
-- **Alias** : ajoutez vos alias dans `~/.zshrc` après l'installation
+- **Prompt**: run `p10k configure` or edit `~/.p10k.zsh`
+- **Plugins**: edit the plugins section in `~/.zshrc` (Zinit and Antigen)
+- **Aliases**: add your aliases to `~/.zshrc` after installation
 
-Les fichiers existants `~/.zshrc` et `~/.p10k.zsh` sont sauvegardés automatiquement avec un horodatage avant toute modification.
+Existing `~/.zshrc` and `~/.p10k.zsh` files are automatically backed up with a timestamp before any changes.
 
-## Désinstallation
+## Uninstall
 
 ```bash
-# Restaurer une sauvegarde
+# Restore a backup
 cp ~/.zshrc.backup.XXXXXXXX ~/.zshrc
 
-# Supprimer les fichiers installés (optionnel)
+# Remove installed files (optional)
 rm -f ~/antigen.zsh ~/.p10k.zsh
 ```
 
-## Licence
+## License
 
-Ce projet est dans le domaine public — voir [LICENSE](LICENSE).
+This project is in the public domain — see [LICENSE](LICENSE).
